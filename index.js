@@ -74,7 +74,7 @@ module.exports = function (fn, options) {
     var blob = new Blob([src], { type: 'text/javascript' });
     if (options && options.bare) { return blob; }
     var workerUrl = URL.createObjectURL(blob);
-    var worker = new Worker(workerUrl);
+    var worker = new Worker(workerUrl, options);
     worker.objectURL = workerUrl;
     return worker;
 };
